@@ -26,11 +26,20 @@ export default async function Home() {
   const characters = await getCharacters();
 
   return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-4">Character Cards</h1>
-      {characters.map((character) => (
-        <CharacterCard key={character.id} character={character} />
-      ))}
+    <div className="bg-white sans-serif min-h-screen flex flex-col items-center">
+      <nav className="bg-white w-full">
+        <div className="container mx-auto py-3 max-w-4xl">
+          BFF
+        </div>
+      </nav>
+      <div className="container py-8 max-w-4xl w-full">
+        <h1 className="mb-4 text-gray-800">Character Cards</h1>
+        <div className="space-y-4">
+          {characters.map((character) => (
+            <CharacterCard key={character.id} character={character} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
