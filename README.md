@@ -1,2 +1,2 @@
-# library
-A curated collection of high-quality character cards and lorebooks for your AI.
+# The BFF House
+A curated collection of high-quality character cards for your AI.
