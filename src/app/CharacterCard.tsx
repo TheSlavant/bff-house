@@ -65,8 +65,9 @@ export default function CharacterCard({ character }: { character: Character }) {
             DOWNLOAD
           </button>
           <button
-            className="bg-red-600 hover:bg-black border border-gray-800 text-white font-bold font-lato text-sm py-0.5 px-2 rounded-none transition duration-150 ease-in-out w-full text-center"
-            onClick={() => window.open(character.creator_link)}
+            className={`bg-red-600 ${character.creator_link ? 'hover:bg-black' : 'opacity-50'} border border-gray-800 text-white font-bold font-lato text-sm py-0.5 px-2 rounded-none transition duration-150 ease-in-out w-full text-center`}
+            onClick={() => character.creator_link && window.open(character.creator_link)}
+            disabled={!character.creator_link}
           >
             CREATOR
           </button>

@@ -34,7 +34,7 @@ export default async function Home() {
       </nav>
       <div className="container py-4 max-w-4xl w-full">
         <h1 className="mb-2 text-gray-800 font-lato font-extrabold">
-          Great AI character cards, batch of 2024-04-01
+          High-quality AI character cards, batch of 2024-04-01
         </h1>
         <div className="space-y-4 font-lato">
           {characters.map((character) => (
