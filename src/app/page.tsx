@@ -26,13 +26,13 @@ export default async function Home() {
   const characters = await getCharacters();
 
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center">
+    <div className="bg-white min-h-screen flex flex-col items-center mt-4">
       <nav className="bg-white w-full">
-        <div className="container mx-auto py-2 max-w-4xl font-playfair text-2xl font-bold border-b-2 border-gray-200">
+        <div className="container mx-auto py-2 max-w-4xl font-playfair text-4xl font-bold border-b-2 border-gray-200">
           BFF
         </div>
       </nav>
-      <div className="container py-4 max-w-4xl w-full">
+      <div className="container py-8 max-w-4xl w-full">
         <h1 className="mb-2 text-gray-800 font-lato font-extrabold">
           High-quality AI character cards, batch of 2024-04-01
         </h1>
@@ -41,6 +41,17 @@ export default async function Home() {
             <CharacterCard key={character.id} character={character} />
           ))}
         </div>
+      </div>
+      {/* Adjust the footer structure here */}
+      <div className="container mx-auto max-w-4xl w-full">
+        <footer className="flex justify-between border-t-2 border-gray-200 font-lato text-gray-400 text-sm py-4">
+          <div className="font-bold text-left">
+            2024 THE BFF GROUP
+          </div>
+          <div className="text-right">
+            Feel the difference
+          </div>
+        </footer>
       </div>
     </div>
   );
