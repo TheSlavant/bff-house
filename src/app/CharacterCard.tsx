@@ -54,7 +54,9 @@ export default function CharacterCard({ character }: { character: Character }) {
             <p><b>Personality:</b> {character.personality}</p>
             <p><b>Character:</b> {character.char_details}</p>
             <p><b>Use cases:</b> {character.use_cases}</p>
+            {character.recommended_models && (
             <p><b>Recommended models:</b> {character.recommended_models}</p>
+            )}
           </div>
         </div>
         <div className="flex flex-col space-y-2">
