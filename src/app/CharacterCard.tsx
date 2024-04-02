@@ -5,10 +5,10 @@ import { Character } from './character';
 function ExpandedContent({ character }: { character: Character }) {
   return (
     <>
-      <div className="mt-2">
-        <p className="text-gray-600">Description: {character.description}</p>
-        <p className="text-gray-600">Example dialogue: {character.example_dialogue}</p>
-        <p className="text-gray-600">First message: {character.first_mes}</p>
+      <div className="mt-4 font-lato text-sm">
+        <p className="text-gray-600"><b>Description:</b> {character.description}</p>
+        <p className="text-gray-600"><b>Example dialogue:</b> {character.example_dialogue}</p>
+        <p className="text-gray-600"><b>First message:</b> {character.first_mes}</p>
       </div>
     </>
   );
@@ -45,28 +45,41 @@ export default function CharacterCard({ character }: { character: Character }) {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 mb-4">
-      <h2 className="font-bold mb-3 text-gray-800">{character.name}</h2>
-      <div className="text-gray-600">
-        <p>Personality: {character.personality}</p>
-        <p>Recommended models: {character.recommended_models}</p>
-        <p>Use cases: {character.use_cases}</p>
-      </div>
-      <div className="flex items-center mt-4">
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out"
-          onClick={handleDownload}
-        >
-          Download
-        </button>
-        <button
-          className="text-blue-500 hover:text-blue-600 underline ml-2"
-          onClick={() => setExpanded(!expanded)}
-        >
-          {expanded ? 'Show Less' : 'Show More'}
-        </button>
+    <div className="bg-white border border-gray-800 rounded-none p-4 mb-4 flex flex-col">
+      <div className="flex flex-row justify-between">
+        <div className="flex flex-col justify-between flex-grow">
+          <h2 className="font-bold font-lato font-extrabold text-gray-800 mb-2">{character.name}</h2>
+          <div className="text-gray-600 font-lato text-sm">
+            <p><b>Creator:</b> {character.creator}</p>
+            <p><b>Personality:</b> {character.personality}</p>
+            <p><b>Character:</b> {character.char_details}</p>
+            <p><b>Use cases:</b> {character.use_cases}</p>
+            <p><b>Recommended models:</b> {character.recommended_models}</p>
+          </div>
+        </div>
+        <div className="flex flex-col space-y-2">
+          <button
+            className="bg-blue-600 hover:bg-black border border-gray-800 text-white font-bold font-lato text-sm py-0.5 px-2 rounded-none transition duration-150 ease-in-out w-full text-center"
+            onClick={handleDownload}
+          >
+            DOWNLOAD
+          </button>
+          <button
+            className="bg-red-600 hover:bg-black border border-gray-800 text-white font-bold font-lato text-sm py-0.5 px-2 rounded-none transition duration-150 ease-in-out w-full text-center"
+            onClick={() => window.open(character.creator_link)}
+          >
+            CREATOR
+          </button>
+          <div className="flex-grow"></div> {/* This div pushes the buttons to the bottom */}
+          <button
+              className="bg-gray-100 hover:bg-black border border-gray-800 text-gray-800 hover:text-white font-bold font-lato text-sm py-0.5 px-2 rounded-none transition duration-150 ease-in-out"
+              onClick={() => setExpanded(!expanded)}
+            >
+              {expanded ? 'hide details' : 'show details'}
+            </button>
+        </div>
       </div>
       {expanded && <ExpandedContent character={character} />}
     </div>
-  );
+  );  
 }

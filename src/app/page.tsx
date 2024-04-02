@@ -26,15 +26,17 @@ export default async function Home() {
   const characters = await getCharacters();
 
   return (
-    <div className="bg-white sans-serif min-h-screen flex flex-col items-center">
+    <div className="bg-white min-h-screen flex flex-col items-center">
       <nav className="bg-white w-full">
-        <div className="container mx-auto py-3 max-w-4xl">
+        <div className="container mx-auto py-2 max-w-4xl font-playfair text-2xl font-bold border-b-2 border-gray-200">
           BFF
         </div>
       </nav>
-      <div className="container py-8 max-w-4xl w-full">
-        <h1 className="mb-4 text-gray-800">Character Cards</h1>
-        <div className="space-y-4">
+      <div className="container py-4 max-w-4xl w-full">
+        <h1 className="mb-2 text-gray-800 font-lato font-extrabold">
+          Great AI character cards, batch of 2024-04-01
+        </h1>
+        <div className="space-y-4 font-lato">
           {characters.map((character) => (
             <CharacterCard key={character.id} character={character} />
           ))}
