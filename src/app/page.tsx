@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import CharacterCard from './CharacterCard';
 import { Character } from './character';
+import EmailForm from './EmailForm';
 
 async function getCharacters(): Promise<Character[]> {
   try {
@@ -32,9 +33,15 @@ export default async function Home() {
           BFF
         </div>
       </nav>
-      <main className="container py-8 max-w-4xl w-full flex-grow">
+      <div className="container mx-auto py-2 max-w-4xl w-full text-left">
+        <p className="font-lato font-extrabold text-gray-800">High-quality AI character cards, updated once a week.</p>
+        <EmailForm />
+        <p id="message" className="font-lato text-sm text-gray-600 mt-1"></p>
+      </div>
+
+      <main className="container py-4 max-w-4xl w-full flex-grow">
         <h1 className="mb-2 text-gray-800 font-lato font-extrabold">
-          High-quality AI character cards, batch of 2024-04-01
+          Batch 1
         </h1>
         <div className="space-y-4 font-lato">
           {characters.map((character) => (
